@@ -9,12 +9,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setTitle("Inventory Management: GUI");
+        primaryStage.setTitle("Inventory Management GUI Prototype");
         primaryStage.setResizable(false);
 
         Scene loginScene = LoginScene.createScene(primaryStage);
         primaryStage.setScene(loginScene);
-
         primaryStage.show();
 
     }

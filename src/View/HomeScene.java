@@ -16,8 +16,6 @@ public class HomeScene {
         VBox outsideVBox = new VBox();
         Scene homeScene = new Scene(outsideVBox, 1024, 768);
 
-        outsideVBox.getStylesheets().add("stylesheet.css");
-
         //Menu Bar
         MenuBar myMenu = new MenuBar();
 
@@ -40,16 +38,18 @@ public class HomeScene {
 
         Pane homePane = new Pane();
 
-
         //TableView
         TableView inventoryTable = new TableView();
-        inventoryTable.setEditable(true);
-        TableColumn firstNameCol = new TableColumn("First Name");
-        TableColumn lastNameCol = new TableColumn("Last Name");
-        TableColumn emailCol = new TableColumn("Email");
+        inventoryTable.setEditable(false);
+        TableColumn productID = new TableColumn("Product ID");
+        TableColumn productName = new TableColumn("Product Name");
+        TableColumn productWidth = new TableColumn("Width");
+        TableColumn productHeight = new TableColumn("Height");
+        TableColumn productDepth = new TableColumn("Depth");
+        TableColumn quantityHeld = new TableColumn("Quantity Held");
+        TableColumn maxQuantity = new TableColumn("Max Quantity");
 
-        inventoryTable.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
-
+        inventoryTable.getColumns().addAll(productID, productName, productWidth, productHeight, productDepth, quantityHeld, maxQuantity);
         inventoryTable.setLayoutX(200);
         inventoryTable.setLayoutY(200);
 

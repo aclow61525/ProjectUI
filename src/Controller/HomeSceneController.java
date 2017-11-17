@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class HomeSceneController {
-
+    //Controllers are where the actions happen
     private Stage primaryStage;
 
     public HomeSceneController(Stage primaryStage) {
