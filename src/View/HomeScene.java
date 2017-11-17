@@ -1,20 +1,22 @@
-package sample;
+package View;
 
+import Controller.HomeSceneController;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class HomeSceneController {
-    //Insert instance variables
-    public static Scene homeScene;
-    public static Pane homePane;
+public class HomeScene {
 
-    public HomeSceneController(Stage primaryStage){
-        homePane = new Pane();
-        homeScene = new Scene(homePane, 1024, 768);
+    public static Scene createScene(Stage primaryStage) {
 
-        homePane.getStylesheets().add("stylesheet.css");
+        HomeSceneController controller = new HomeSceneController(primaryStage);
+
+        VBox outsideVBox = new VBox();
+        Scene homeScene = new Scene(outsideVBox, 1024, 768);
+
+        outsideVBox.getStylesheets().add("stylesheet.css");
 
         //Menu Bar
         MenuBar myMenu = new MenuBar();
@@ -30,11 +32,14 @@ public class HomeSceneController {
 
         Menu loginMenu = new Menu("Login Options");
         MenuItem loginMenuItem1 = new MenuItem("Logout");
-        loginMenuItem1.setOnAction(ae -> primaryStage.setScene(primaryStage.setScene(lsc.loginPageScene)));
+        loginMenuItem1.setOnAction(ae -> controller.logout());
         loginMenu.getItems().addAll(loginMenuItem1);
 
         myMenu.getMenus().addAll(fileMenu, productMenu, loginMenu);
-        homePane.getChildren().add(myMenu);
+        outsideVBox.getChildren().add(myMenu);
+
+        Pane homePane = new Pane();
+
 
         //TableView
         TableView inventoryTable = new TableView();
@@ -44,10 +49,16 @@ public class HomeSceneController {
         TableColumn emailCol = new TableColumn("Email");
 
         inventoryTable.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
-        //inventoryTable.setLayoutX(512);
-        //inventoryTable.setLayoutY(200);
+
+        inventoryTable.setLayoutX(200);
+        inventoryTable.setLayoutY(200);
+
         homePane.getChildren().add(inventoryTable);
+
+        outsideVBox.getChildren().add(homePane);
+
+        return homeScene;
+
     }
+
 }
-
-
