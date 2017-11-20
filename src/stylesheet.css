@@ -1,4 +1,15 @@
-.borderPane, .loginScene {
+.Scenes {
+
+}
+.button{
+    -fx-text-fill: white;
+    -fx-font-family: "helvetica";
+    -fx-background-color: grey;
+    -fx-padding: 10;
+}
+.other{
     -fx-text-fill: white;
     -fx-background-color: black;
+    -fx-padding: 10;
+    -fx-font-size: 16;
 }

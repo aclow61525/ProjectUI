@@ -3,9 +3,14 @@ package View;
 import Controller.LoginSceneController;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class LoginScene {
@@ -14,29 +19,36 @@ public class LoginScene {
 
         LoginSceneController lsc = new LoginSceneController(primaryStage);
 
-        Pane borderPane = new Pane();
-        Scene loginScene = new Scene(borderPane, 1024, 768);
+        VBox outsideVBox = new VBox();
+        Scene loginScene = new Scene(outsideVBox, 1024, 576);
 
-        borderPane.getStylesheets().add("stylesheet.css");
+        Text pageTitle = new Text();
+        pageTitle.setText("Login");
+        pageTitle.setFont(Font.font("helvetica", FontWeight.BOLD, 40));
+        outsideVBox.getChildren().add(pageTitle);
+
+        Pane borderPane = new Pane();
 
         TextField userNameField = new TextField();
         userNameField.setPrefWidth(300);
         userNameField.setLayoutX(362);
-        userNameField.setLayoutY(307.2);
+        userNameField.setLayoutY(134);
         borderPane.getChildren().add(userNameField);
 
-        TextField passwordField = new TextField();
+        PasswordField passwordField = new PasswordField();
         passwordField.setPrefWidth(300);
         passwordField.setLayoutX(362);
-        passwordField.setLayoutY(460.8);
+        passwordField.setLayoutY(268);
         borderPane.getChildren().add(passwordField);
 
         Button loginButton = new Button("Login Button");
         loginButton.setOnAction(ae -> lsc.login());
         loginButton.setPrefWidth(300);
         loginButton.setLayoutX(362);
-        loginButton.setLayoutY(614.4);
+        loginButton.setLayoutY(402);
         borderPane.getChildren().add(loginButton);
+
+        outsideVBox.getChildren().add(borderPane);
 
         return loginScene;
 
