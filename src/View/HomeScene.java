@@ -22,9 +22,11 @@ public class HomeScene {
         Scene homeScene = new Scene(outsideVBox, 1024, 576);
 
         homeScene.getStylesheets().add("stylesheet.css");
+        outsideVBox.getStyleClass().add("Pages");
 
         //Menu Bar
         MenuBar myMenu = new MenuBar();
+        myMenu.setMinHeight(20);
 
         Menu loginMenu = new Menu("Login Options");
         MenuItem loginMenuItem1 = new MenuItem("Logout");
@@ -45,34 +47,32 @@ public class HomeScene {
 
         Text pageTitle = new Text();
         pageTitle.setText("Home Page");
-        pageTitle.setFont(Font.font("helvetica", FontWeight.BOLD, 40));
+        pageTitle.setFont(Font.font("Segoe UI Light", FontWeight.BOLD, 40));
         outsideVBox.getChildren().add(pageTitle);
 
         HBox quickFunctionsBar = new HBox(208);
 
         Button[] quickButtons = new Button[4];
 
-        quickButtons[0] = new Button("PLUS STOCK");
+        quickButtons[0] = new Button("+");
         quickButtons[0].setPrefSize(100, 50);
-        quickButtons[0].getStyleClass().add("button");
+        quickButtons[0].getStyleClass().add("symbolButton");
         //quickButtons[0].setOnAction((ActionEvent ae) -> doSomething());
 
-        quickButtons[1] = new Button("MINUS STOCK");
+        quickButtons[1] = new Button("-");
         quickButtons[1].setPrefSize(100, 50);
-        quickButtons[1].getStyleClass().add("button");
+        quickButtons[1].getStyleClass().add("symbolButton");
         //quickButtons[1].setOnAction((ActionEvent ae) -> doSomething());
 
-        quickButtons[2] = new Button("REFRESH DATABASE");
+        quickButtons[2] = new Button("REFRESH");
         quickButtons[2].setPrefSize(100, 50);
-        quickButtons[2].getStyleClass().add("button");
+        quickButtons[2].getStyleClass().add("allButton");
         //quickButtons[2].setOnAction((ActionEvent ae) -> doSomething());
 
-        quickButtons[3] = new Button("RUN STOCK CHECK");
+        quickButtons[3] = new Button("STOCK CHECK");
         quickButtons[3].setPrefSize(100, 50);
-        quickButtons[3].getStyleClass().add("button");
+        quickButtons[3].getStyleClass().add("allButton");
         //quickButtons[3].setOnAction((ActionEvent ae) -> doSomething());
-
-
 
         quickFunctionsBar.getChildren().addAll(quickButtons);
 
@@ -93,11 +93,12 @@ public class HomeScene {
         TableColumn maxQuantity = new TableColumn("Max Quantity");
 
         inventoryTable.getColumns().addAll(productID, productName, productWidth, productHeight, productDepth, quantityHeld, maxQuantity);
+        inventoryTable.refresh();
         inventoryTable.setPrefWidth(1000);
         inventoryTable.setLayoutX(12);//Half the size of scene width minus table width
 
-        inventoryTable.setPrefHeight(400);
-        //inventoryTable.setLayoutY(32);
+        inventoryTable.setLayoutY(10);//Gives a 10 px padding
+        inventoryTable.setPrefHeight(430);
 
         homePane.getChildren().add(inventoryTable);
 
