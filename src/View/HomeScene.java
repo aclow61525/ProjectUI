@@ -31,7 +31,9 @@ public class HomeScene {
         Menu loginMenu = new Menu("Login Options");
         MenuItem loginMenuItem1 = new MenuItem("Logout");
         loginMenuItem1.setOnAction(ae -> controller.logout());
-        loginMenu.getItems().addAll(loginMenuItem1);
+        MenuItem loginMenuItem2 = new MenuItem("Exit the program");
+        loginMenuItem2.setOnAction(ae -> controller.exit());
+        loginMenu.getItems().addAll(loginMenuItem1, loginMenuItem2);
 
         Menu fileMenu = new Menu("Database");
         MenuItem fileMenuItem1 = new MenuItem("Refresh Database");
@@ -69,10 +71,10 @@ public class HomeScene {
         quickButtons[2].getStyleClass().add("allButton");
         //quickButtons[2].setOnAction((ActionEvent ae) -> doSomething());
 
-        quickButtons[3] = new Button("STOCK CHECK");
+        quickButtons[3] = new Button("CHECK");
         quickButtons[3].setPrefSize(100, 50);
         quickButtons[3].getStyleClass().add("allButton");
-        //quickButtons[3].setOnAction((ActionEvent ae) -> doSomething());
+        quickButtons[3].setOnAction((ActionEvent ae) -> controller.startCheck());
 
         quickFunctionsBar.getChildren().addAll(quickButtons);
 
@@ -83,17 +85,22 @@ public class HomeScene {
         //TableView
         TableView inventoryTable = new TableView();
         inventoryTable.setEditable(false);
-        //inventoryTable.
         TableColumn productID = new TableColumn("Product ID");
+        productID.setPrefWidth(142);
         TableColumn productName = new TableColumn("Product Name");
+        productName.setPrefWidth(200);
         TableColumn productWidth = new TableColumn("Width");
+        productWidth.setPrefWidth(100);
         TableColumn productHeight = new TableColumn("Height");
+        productHeight.setPrefWidth(100);
         TableColumn productDepth = new TableColumn("Depth");
+        productDepth.setPrefWidth(100);
         TableColumn quantityHeld = new TableColumn("Quantity Held");
+        quantityHeld.setPrefWidth(180);
         TableColumn maxQuantity = new TableColumn("Max Quantity");
+        maxQuantity.setPrefWidth(180);
 
         inventoryTable.getColumns().addAll(productID, productName, productWidth, productHeight, productDepth, quantityHeld, maxQuantity);
-        inventoryTable.refresh();
         inventoryTable.setPrefWidth(1000);
         inventoryTable.setLayoutX(12);//Half the size of scene width minus table width
 

@@ -1,5 +1,6 @@
-darkgray = #a9a9a9
+darkgray = #a6a6a6
 ligher than dark grey for hover/select b3b3b3
+
 gray = #808080 for important functions eg login
 
 Important text white, less important black

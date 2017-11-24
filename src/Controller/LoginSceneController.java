@@ -19,5 +19,4 @@ public class LoginSceneController {
         primaryStage.setScene(homeScene);
 
     }
-
 }

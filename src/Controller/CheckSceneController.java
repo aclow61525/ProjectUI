@@ -1,15 +1,14 @@
 package Controller;
 
 import View.LoginScene;
-import View.CheckScene;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class HomeSceneController {
+public class CheckSceneController {
     //Controllers are where the actions happen
     private Stage primaryStage;
 
-    public HomeSceneController(Stage primaryStage) {
+    public CheckSceneController(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
@@ -17,11 +16,6 @@ public class HomeSceneController {
 
         Scene loginScene = LoginScene.createScene(primaryStage);
         primaryStage.setScene(loginScene);
-
-    }
-    public void startCheck(){
-        Scene checkScene = CheckScene.createScene(primaryStage);
-        primaryStage.setScene(checkScene);
 
     }
     public void exit(){

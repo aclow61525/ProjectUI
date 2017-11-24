@@ -34,16 +34,15 @@ public class LoginScene {
 
         TextField userNameField = new TextField();
         userNameField.setPromptText("Username");
-        userNameField.setFocusTraversable(false);
+        //userNameField.setFocusTraversable(false);
         userNameField.setPrefWidth(300);
         userNameField.setLayoutX(362);
         userNameField.setLayoutY(134);
         borderPane.getChildren().add(userNameField);
 
-        //change to password field
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Password");
-        passwordField.setFocusTraversable(false);
+        //passwordField.setFocusTraversable(false);
         passwordField.setPrefWidth(300);
         passwordField.setLayoutX(362);
         passwordField.setLayoutY(268);
