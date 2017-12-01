@@ -1,20 +1,18 @@
 package Controller;
 
-import View.CheckScene;
 import View.HomeScene;
 import View.LoginScene;
+import View.StockReductionScene;
+import View.StockReductionScene;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
-import java.util.concurrent.TimeUnit;
-
-public class CheckSceneController {
+public class StockReductionSceneController {
     //Controllers are where the actions happen
+
     private Stage primaryStage;
 
-    public CheckSceneController(Stage primaryStage) {
+    public StockReductionSceneController(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
@@ -33,13 +31,8 @@ public class CheckSceneController {
         primaryStage.setScene(homeScene);
     }
 
-    public void scanDatabase(){
-        try{
-            TimeUnit.SECONDS.sleep(3);
-        }catch(InterruptedException ie){
-            System.out.println("Didn't work");
-        }
-        System.out.println("Insert stock check here");
+    public void openStockDepletionScene() {
+        Scene stockDepletionScene = StockReductionScene.createScene(primaryStage);
+        primaryStage.setScene(stockDepletionScene);
     }
-
 }

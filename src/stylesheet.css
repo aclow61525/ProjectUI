@@ -26,23 +26,12 @@
     -fx-padding: 10;
     -fx-font-size: 16;
 }
-.hiddenButton{
-    -fx-text-fill: white;
-    -fx-font-family: "Segoe UI Light";
-    -fx-background-color: #a6a6a6;
-    -fx-font-size: 16;
-}
+
 .text-field {
     -fx-text-fill: white;
     -fx-prompt-text-fill: white;
     -fx-background-color: #b3b3b3;
 }
-/*.other {
-    -fx-text-fill: white;
-    -fx-background-color: black;
-    -fx-padding: 10;
-    -fx-font-size: 16;
-}*/
 
 .table-view {
     -fx-base: #808080;
@@ -68,7 +57,6 @@
             transparent;
     -fx-border-insets: 0 10 1 0;
 }
-
 .table-view .column-header .label {
     -fx-font-size: 20pt;
     -fx-font-family: "Segoe UI Light";
@@ -76,7 +64,17 @@
     -fx-alignment: center-left;
     -fx-opacity: 1;
 }
-.progress-indicator {
-    /*-fx-background-color: white;*/
-    -fx-progress-color: black;
+.slider{
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-color:#549534;
+}
+.combo-box{
+    -fx-text-fill: white;
+    -fx-text-fill: white;
+    -fx-background-color: #b3b3b3;
+}
+.combo-box .combo-box:hover, .combo-box .combo-box:focused, .combo-box .combo-box:showing, .combo-box, .combo-box-item {
+    -fx-background-color: #b3b3b3;
+    -fx-text-fill: white;
 }

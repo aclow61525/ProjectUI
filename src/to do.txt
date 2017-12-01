@@ -1,0 +1,4 @@
+Stock addition
+Delete product
+New product
+
