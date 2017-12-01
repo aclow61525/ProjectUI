@@ -2,6 +2,7 @@ package Controller;
 
 import View.LoginScene;
 import View.CheckScene;
+import View.StockDepletionScene;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -23,6 +24,10 @@ public class HomeSceneController {
         Scene checkScene = CheckScene.createScene(primaryStage);
         primaryStage.setScene(checkScene);
 
+    }
+    public void openStockDepletionScene(){
+        Scene stockDepletionScene = StockDepletionScene.createScene(primaryStage);
+        primaryStage.setScene(stockDepletionScene);
     }
     public void exit(){
         System.exit(0);

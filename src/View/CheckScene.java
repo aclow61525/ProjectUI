@@ -90,7 +90,11 @@ public class CheckScene {
         homePane.getChildren().add(homeButton);
 
         Button checkButton = new Button("Run Check");
-        checkButton.setOnAction(ae -> controller.prepareCheck(homeButton, checkButton));
+        checkButton.setOnAction(ae -> {
+            controller.scanDatabase();
+            pageTitle.setText("Stock check completed");
+            homeButton.setText("Return Home");
+            checkButton.setVisible(false);});
         checkButton.setPrefWidth(284);
         checkButton.setPrefHeight(110);
         checkButton.setLayoutX(732);
@@ -102,4 +106,5 @@ public class CheckScene {
 
         return checkScene;
     }
+
 }

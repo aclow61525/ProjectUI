@@ -64,7 +64,7 @@ public class HomeScene {
         quickButtons[1] = new Button("-");
         quickButtons[1].setPrefSize(100, 50);
         quickButtons[1].getStyleClass().add("symbolButton");
-        //quickButtons[1].setOnAction((ActionEvent ae) -> doSomething());
+        quickButtons[1].setOnAction((ActionEvent ae) -> controller.openStockDepletionScene());
 
         quickButtons[2] = new Button("REFRESH");
         quickButtons[2].setPrefSize(100, 50);
