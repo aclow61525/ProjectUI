@@ -19,7 +19,7 @@ public class HomeSceneController {
         primaryStage.setScene(loginScene);
 
     }
-    public void startCheck(){
+    public void openCheckScene(){
         Scene checkScene = CheckScene.createScene(primaryStage);
         primaryStage.setScene(checkScene);
 

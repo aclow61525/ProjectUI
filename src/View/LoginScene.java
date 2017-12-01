@@ -49,7 +49,7 @@ public class LoginScene {
         borderPane.getChildren().add(passwordField);
 
         Button loginButton = new Button("Login");
-        loginButton.setOnAction(ae -> lsc.login());
+        loginButton.setOnAction(ae -> lsc.openLoginScene());
         loginButton.setPrefWidth(300);
         loginButton.setLayoutX(362);
         loginButton.setLayoutY(402);

@@ -74,7 +74,7 @@ public class HomeScene {
         quickButtons[3] = new Button("CHECK");
         quickButtons[3].setPrefSize(100, 50);
         quickButtons[3].getStyleClass().add("allButton");
-        quickButtons[3].setOnAction((ActionEvent ae) -> controller.startCheck());
+        quickButtons[3].setOnAction((ActionEvent ae) -> controller.openCheckScene());
 
         quickFunctionsBar.getChildren().addAll(quickButtons);
 

@@ -26,6 +26,12 @@
     -fx-padding: 10;
     -fx-font-size: 16;
 }
+.hiddenButton{
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI Light";
+    -fx-background-color: #a6a6a6;
+    -fx-font-size: 16;
+}
 .text-field {
     -fx-text-fill: white;
     -fx-prompt-text-fill: white;

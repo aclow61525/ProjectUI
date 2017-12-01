@@ -23,7 +23,7 @@ public class CheckScene {
 
         //Menu Bar
         MenuBar myMenu = new MenuBar();
-        myMenu.setMinHeight(20);
+        myMenu.setPrefSize(1024, 20);
 
         Menu loginMenu = new Menu("Login Options");
         MenuItem loginMenuItem1 = new MenuItem("Logout");
@@ -65,16 +65,24 @@ public class CheckScene {
 
         orderCheckTable.getColumns().addAll(productID, productName, quantityHeld, maxQuantity);
         orderCheckTable.setPrefWidth(710);
-        orderCheckTable.setLayoutX(12);//Half the size of scene width minus table width
+        orderCheckTable.setLayoutX(10);
 
         orderCheckTable.setLayoutY(10);//Gives a 10 px padding
         orderCheckTable.setPrefHeight(490);
 
         homePane.getChildren().add(orderCheckTable);
 
+        ProgressBar pi = new ProgressBar(0.6);
+        pi.setPrefWidth(284);
+        pi.setPrefHeight(110);
+        pi.setLayoutX(732);
+        pi.setLayoutY(250);
+        pi.setVisible(false);
+        homePane.getChildren().add(pi);
+
         Button homeButton = new Button("Home");
-        //checkButton.setOnAction(ae -> lsc.login());
-        homeButton.setPrefWidth(300);
+        homeButton.setOnAction(ae -> controller.openHomeScene());
+        homeButton.setPrefWidth(284);
         homeButton.setPrefHeight(110);
         homeButton.setLayoutX(732);
         homeButton.setLayoutY(10);
@@ -82,28 +90,13 @@ public class CheckScene {
         homePane.getChildren().add(homeButton);
 
         Button checkButton = new Button("Run Check");
-        //checkButton.setOnAction(ae -> lsc.login());
-        checkButton.setPrefWidth(300);
+        checkButton.setOnAction(ae -> controller.prepareCheck(homeButton, checkButton));
+        checkButton.setPrefWidth(284);
         checkButton.setPrefHeight(110);
         checkButton.setLayoutX(732);
         checkButton.setLayoutY(130);
         checkButton.getStyleClass().add("symbolButton");
         homePane.getChildren().add(checkButton);
-
-        ProgressBar pi = new ProgressBar(0.6);
-        pi.setPrefWidth(300);
-        pi.setPrefHeight(110);
-        pi.setLayoutX(732);
-        pi.setLayoutY(250);
-        homePane.getChildren().add(pi);
-        //add text field here, 110 big with 10 px padding
-
-        /*ProgressIndicator pi = new ProgressIndicator();
-        pi.setPrefWidth(300);
-        pi.setPrefHeight(230);
-        pi.setLayoutX(732);
-        pi.setLayoutY(240);
-        homePane.getChildren().add(pi);*/
 
         outsideVBox.getChildren().add(homePane);
 

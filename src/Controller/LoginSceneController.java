@@ -13,7 +13,7 @@ public class LoginSceneController {
         this.primaryStage = primaryStage;
     }
 
-    public void login() {
+    public void openLoginScene() {
 
         Scene homeScene = HomeScene.createScene(primaryStage);
         primaryStage.setScene(homeScene);
