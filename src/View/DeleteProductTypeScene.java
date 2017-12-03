@@ -12,7 +12,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class StockReductionScene {
+public class DeleteProductTypeScene {
 
     public static Scene createScene(Stage primaryStage) {
 
@@ -48,7 +48,7 @@ public class StockReductionScene {
         outsideVBox.getChildren().add(myMenu);
 
         Text pageTitle = new Text();
-        pageTitle.setText("Record reduction of Stock levels");
+        pageTitle.setText("Delete a Product Type");
         pageTitle.setFont(Font.font("Segoe UI Light", FontWeight.BOLD, 40));
         outsideVBox.getChildren().add(pageTitle);
 
@@ -63,32 +63,6 @@ public class StockReductionScene {
         inventoryItemsList.setLayoutY(86);
         inventoryItemsList.getStyleClass().add("combo-box");
         mainPane.getChildren().add(inventoryItemsList);
-
-        TextField depletionLevelEntry = new TextField();
-        depletionLevelEntry.setPromptText("Level of depletion");
-        depletionLevelEntry.setEditable(false);
-        depletionLevelEntry.setPrefWidth(300);
-        depletionLevelEntry.setLayoutX(362);
-        depletionLevelEntry.setLayoutY(172);
-
-        mainPane.getChildren().add(depletionLevelEntry);
-
-        Slider quantitySlider = new Slider(); //Declares a new Slider Control
-        quantitySlider.setMin(0); //Sets the min value of the slider to be 0
-        quantitySlider.setMax(100); //Sets the max value of the slider to be 100
-        quantitySlider.setValue(50);    //The default slider position is set to 50
-        quantitySlider.setMajorTickUnit(10); //Sets each milestone 'tick' (point) to be every 10, this is what's labelled
-        quantitySlider.setBlockIncrement(1); //TThe amount by which to adjust the slider if the bar of the slider is clicked
-        quantitySlider.setShowTickLabels(true); //This enables the label of the key milestone slider values (ticks), set to 10
-        quantitySlider.setPrefWidth(300); //Sets the width of the slider to be 300
-        quantitySlider.setLayoutX(362); //Sets the X co-ordinate position of the slider within the pane
-        quantitySlider.setLayoutY(258); //Sets the Y co-ordinate position of the slider within the pane
-        mainPane.getChildren().add(quantitySlider); //Adds the slider to the Pane
-
-        quantitySlider.valueProperty().addListener((observable, old_value, new_value) -> {
-            int sliderIntegerValue = (new_value.intValue());
-            depletionLevelEntry.setText("Reducing stock level by: " + (sliderIntegerValue));
-        });
 
         Button cancelButton = new Button("Cancel");
         cancelButton.setOnAction(ae -> controller.openHomeScene());

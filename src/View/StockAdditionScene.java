@@ -12,7 +12,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class StockReductionScene {
+public class StockAdditionScene {
 
     public static Scene createScene(Stage primaryStage) {
 
@@ -48,7 +48,7 @@ public class StockReductionScene {
         outsideVBox.getChildren().add(myMenu);
 
         Text pageTitle = new Text();
-        pageTitle.setText("Record reduction of Stock levels");
+        pageTitle.setText("Record addition of Stock levels");
         pageTitle.setFont(Font.font("Segoe UI Light", FontWeight.BOLD, 40));
         outsideVBox.getChildren().add(pageTitle);
 
@@ -65,7 +65,7 @@ public class StockReductionScene {
         mainPane.getChildren().add(inventoryItemsList);
 
         TextField depletionLevelEntry = new TextField();
-        depletionLevelEntry.setPromptText("Level of depletion");
+        depletionLevelEntry.setPromptText("Quantity of stock to increase by");
         depletionLevelEntry.setEditable(false);
         depletionLevelEntry.setPrefWidth(300);
         depletionLevelEntry.setLayoutX(362);
@@ -87,7 +87,7 @@ public class StockReductionScene {
 
         quantitySlider.valueProperty().addListener((observable, old_value, new_value) -> {
             int sliderIntegerValue = (new_value.intValue());
-            depletionLevelEntry.setText("Reducing stock level by: " + (sliderIntegerValue));
+            depletionLevelEntry.setText("Increasing stock level by: " + (sliderIntegerValue));
         });
 
         Button cancelButton = new Button("Cancel");

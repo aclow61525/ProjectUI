@@ -69,12 +69,7 @@
     -fx-text-fill: white;
     -fx-color:#549534;
 }
-.combo-box{
-    -fx-text-fill: white;
-    -fx-text-fill: white;
+.combo-box {
     -fx-background-color: #b3b3b3;
-}
-.combo-box .combo-box:hover, .combo-box .combo-box:focused, .combo-box .combo-box:showing, .combo-box, .combo-box-item {
-    -fx-background-color: #b3b3b3;
-    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
 }

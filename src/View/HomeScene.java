@@ -41,7 +41,9 @@ public class HomeScene {
 
         Menu productMenu = new Menu("Product");
         MenuItem productMenuItem1 = new MenuItem("Add new product type");
+        //productMenuItem1 .setOnAction(ae -> controller.openStock);
         MenuItem productMenuItem2 = new MenuItem("Delete Product Type");
+        productMenuItem2.setOnAction(ae -> controller.openDeleteProductTypeScene());
         productMenu.getItems().addAll(productMenuItem1, productMenuItem2);
 
         myMenu.getMenus().addAll(loginMenu, fileMenu, productMenu);
@@ -59,7 +61,7 @@ public class HomeScene {
         quickButtons[0] = new Button("+");
         quickButtons[0].setPrefSize(100, 50);
         quickButtons[0].getStyleClass().add("symbolButton");
-        //quickButtons[0].setOnAction((ActionEvent ae) -> doSomething());
+        quickButtons[0].setOnAction((ActionEvent ae) -> controller.openStockAdditionScene());
 
         quickButtons[1] = new Button("-");
         quickButtons[1].setPrefSize(100, 50);

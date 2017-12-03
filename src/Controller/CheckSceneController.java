@@ -1,11 +1,8 @@
 package Controller;
 
-import View.CheckScene;
 import View.HomeScene;
 import View.LoginScene;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
 import java.util.concurrent.TimeUnit;
