@@ -13,20 +13,20 @@ public class HomeSceneController {
     }
 
     public void logout() {
-
         Scene loginScene = LoginScene.createScene(primaryStage);
         primaryStage.setScene(loginScene);
-
     }
     public void openDeleteProductTypeScene(){
         Scene deleteProductTypeScene = DeleteProductTypeScene.createScene(primaryStage);
         primaryStage.setScene(deleteProductTypeScene);
-
+    }
+    public void openCreateProductTypeScene(){
+        Scene createProductTypeScene = CreateProductTypeScene.createScene(primaryStage);
+        primaryStage.setScene(createProductTypeScene);
     }
     public void openCheckScene(){
         Scene checkScene = CheckScene.createScene(primaryStage);
         primaryStage.setScene(checkScene);
-
     }
     public void openStockAdditionScene(){
         Scene stockAdditionScene = StockAdditionScene.createScene(primaryStage);

@@ -29,9 +29,4 @@ public class DeleteProductTypeSceneController {
         Scene homeScene = HomeScene.createScene(primaryStage);
         primaryStage.setScene(homeScene);
     }
-
-    public void openDeleteProductTypeScene() {
-        Scene deleteProductTypeScene = DeleteProductTypeScene.createScene(primaryStage);
-        primaryStage.setScene(deleteProductTypeScene);
-    }
 }

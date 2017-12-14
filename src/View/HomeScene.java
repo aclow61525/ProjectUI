@@ -41,7 +41,7 @@ public class HomeScene {
 
         Menu productMenu = new Menu("Product");
         MenuItem productMenuItem1 = new MenuItem("Add new product type");
-        //productMenuItem1 .setOnAction(ae -> controller.openStock);
+        productMenuItem1.setOnAction(ae -> controller.openCreateProductTypeScene());
         MenuItem productMenuItem2 = new MenuItem("Delete Product Type");
         productMenuItem2.setOnAction(ae -> controller.openDeleteProductTypeScene());
         productMenu.getItems().addAll(productMenuItem1, productMenuItem2);

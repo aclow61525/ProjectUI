@@ -32,16 +32,8 @@ public class CheckScene {
         loginMenuItem2.setOnAction(ae -> controller.exit());
         loginMenu.getItems().addAll(loginMenuItem1, loginMenuItem2);
 
-        Menu fileMenu = new Menu("Database");
-        MenuItem fileMenuItem1 = new MenuItem("Refresh Database");
-        fileMenu.getItems().addAll(fileMenuItem1);
+        myMenu.getMenus().addAll(loginMenu);
 
-        Menu productMenu = new Menu("Product");
-        MenuItem productMenuItem1 = new MenuItem("Add new product type");
-        MenuItem productMenuItem2 = new MenuItem("Delete Product Type");
-        productMenu.getItems().addAll(productMenuItem1, productMenuItem2);
-
-        myMenu.getMenus().addAll(loginMenu, fileMenu, productMenu);
         outsideVBox.getChildren().add(myMenu);
 
         Text pageTitle = new Text();

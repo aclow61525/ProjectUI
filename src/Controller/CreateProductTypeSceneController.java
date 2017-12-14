@@ -1,17 +1,17 @@
 package Controller;
 
+import View.DeleteProductTypeScene;
+import View.CreateProductTypeScene;
 import View.HomeScene;
 import View.LoginScene;
-import View.StockReductionScene;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class StockReductionSceneController {
-    //Controllers are where the actions happen
+public class CreateProductTypeSceneController {
 
     private Stage primaryStage;
 
-    public StockReductionSceneController(Stage primaryStage) {
+    public CreateProductTypeSceneController(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
@@ -19,6 +19,7 @@ public class StockReductionSceneController {
         Scene loginScene = LoginScene.createScene(primaryStage);
         primaryStage.setScene(loginScene);
     }
+
     public void exit(){
         System.exit(0);
     }
@@ -26,10 +27,5 @@ public class StockReductionSceneController {
     public void openHomeScene(){
         Scene homeScene = HomeScene.createScene(primaryStage);
         primaryStage.setScene(homeScene);
-    }
-
-    public void openStockReductionScene() {
-        Scene stockDepletionScene = StockReductionScene.createScene(primaryStage);
-        primaryStage.setScene(stockDepletionScene);
     }
 }

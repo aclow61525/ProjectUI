@@ -16,10 +16,8 @@ public class StockAdditionSceneController {
     }
 
     public void logout() {
-
         Scene loginScene = LoginScene.createScene(primaryStage);
         primaryStage.setScene(loginScene);
-
     }
     public void exit(){
         System.exit(0);
