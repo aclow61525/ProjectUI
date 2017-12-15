@@ -1,7 +1,5 @@
 package Controller;
 
-import View.DeleteProductTypeScene;
-import View.CreateProductTypeScene;
 import View.HomeScene;
 import View.LoginScene;
 import javafx.scene.Scene;

@@ -2,6 +2,7 @@ package View;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -14,6 +15,8 @@ public class Main extends Application {
 
         Scene loginScene = LoginScene.createScene(primaryStage);
         primaryStage.setScene(loginScene);
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("../Resources/ProjectLogo.png")));
+
         primaryStage.show();
 
     }
