@@ -1,10 +1,8 @@
 package View;
 
 import Controller.CreateProductTypeSceneController;
-import Controller.LoginSceneController;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -19,9 +17,9 @@ public class CreateProductTypeScene {
         CreateProductTypeSceneController controller = new CreateProductTypeSceneController(primaryStage);
 
         VBox outsideVBox = new VBox();
-        Scene loginScene = new Scene(outsideVBox, 1024, 576);
+        Scene createProductTypeScene = new Scene(outsideVBox, 1024, 576);
 
-        loginScene.getStylesheets().add("stylesheet.css");
+        createProductTypeScene.getStylesheets().add("stylesheet.css");
         outsideVBox.getStyleClass().add("Pages");
 
         //Menu Bar
@@ -114,7 +112,7 @@ public class CreateProductTypeScene {
         mainPane.getChildren().add(productWeightTF);
 
         Button confirmButton = new Button("Confirm");
-        //confirmButton.setOnAction(ae -> controller.openLoginScene());
+        //confirmButton.setOnAction(ae -> controller.opencreateProductTypeScene());
         confirmButton.setPrefWidth(300);
         confirmButton.setLayoutX(635.5);
         confirmButton.setLayoutY(446);
@@ -123,7 +121,7 @@ public class CreateProductTypeScene {
 
         outsideVBox.getChildren().add(mainPane);
 
-        return loginScene;
+        return createProductTypeScene;
 
     }
 }

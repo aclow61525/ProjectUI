@@ -19,9 +19,9 @@ public class DeleteProductTypeScene {
         StockReductionSceneController controller = new StockReductionSceneController(primaryStage);
 
         VBox outsideVBox = new VBox();
-        Scene loginScene = new Scene(outsideVBox, 1024, 576);
+        Scene deleteProductTypeScene = new Scene(outsideVBox, 1024, 576);
 
-        loginScene.getStylesheets().add("stylesheet.css");
+        deleteProductTypeScene.getStylesheets().add("stylesheet.css");
         outsideVBox.getStyleClass().add("Pages");
 
         //Menu Bar
@@ -73,7 +73,7 @@ public class DeleteProductTypeScene {
 
         outsideVBox.getChildren().add(mainPane);
 
-        return loginScene;
+        return deleteProductTypeScene;
 
     }
 

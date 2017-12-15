@@ -1,6 +1,6 @@
 package View;
 
-import Controller.StockReductionSceneController;
+import Controller.StockAdditionSceneController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -16,12 +16,12 @@ public class StockAdditionScene {
 
     public static Scene createScene(Stage primaryStage) {
 
-        StockReductionSceneController controller = new StockReductionSceneController(primaryStage);
+        StockAdditionSceneController controller = new StockAdditionSceneController(primaryStage);
 
         VBox outsideVBox = new VBox();
-        Scene loginScene = new Scene(outsideVBox, 1024, 576);
+        Scene stockAdditionScene = new Scene(outsideVBox, 1024, 576);
 
-        loginScene.getStylesheets().add("stylesheet.css");
+        stockAdditionScene.getStylesheets().add("stylesheet.css");
         outsideVBox.getStyleClass().add("Pages");
 
         //Menu Bar
@@ -55,14 +55,14 @@ public class StockAdditionScene {
         inventoryItemsList.getStyleClass().add("combo-box");
         mainPane.getChildren().add(inventoryItemsList);
 
-        TextField depletionLevelEntry = new TextField();
-        depletionLevelEntry.setPromptText("Quantity of stock to increase by");
-        depletionLevelEntry.setEditable(false);
-        depletionLevelEntry.setPrefWidth(300);
-        depletionLevelEntry.setLayoutX(362);
-        depletionLevelEntry.setLayoutY(172);
+        TextField additionLevelEntry = new TextField();
+        additionLevelEntry.setPromptText("Quantity of stock to increase by");
+        additionLevelEntry.setEditable(false);
+        additionLevelEntry.setPrefWidth(300);
+        additionLevelEntry.setLayoutX(362);
+        additionLevelEntry.setLayoutY(172);
 
-        mainPane.getChildren().add(depletionLevelEntry);
+        mainPane.getChildren().add(additionLevelEntry);
 
         Slider quantitySlider = new Slider(); //Declares a new Slider Control
         quantitySlider.setMin(0); //Sets the min value of the slider to be 0
@@ -78,7 +78,7 @@ public class StockAdditionScene {
 
         quantitySlider.valueProperty().addListener((observable, old_value, new_value) -> {
             int sliderIntegerValue = (new_value.intValue());
-            depletionLevelEntry.setText("Increasing stock level by: " + (sliderIntegerValue));
+            additionLevelEntry.setText("Increasing stock level by: " + (sliderIntegerValue));
         });
 
         Button cancelButton = new Button("Cancel");
@@ -99,7 +99,7 @@ public class StockAdditionScene {
 
         outsideVBox.getChildren().add(mainPane);
 
-        return loginScene;
+        return stockAdditionScene;
 
     }
 

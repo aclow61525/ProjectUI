@@ -19,9 +19,9 @@ public class StockReductionScene {
         StockReductionSceneController controller = new StockReductionSceneController(primaryStage);
 
         VBox outsideVBox = new VBox();
-        Scene loginScene = new Scene(outsideVBox, 1024, 576);
+        Scene stockReductionScene = new Scene(outsideVBox, 1024, 576);
 
-        loginScene.getStylesheets().add("stylesheet.css");
+        stockReductionScene.getStylesheets().add("stylesheet.css");
         outsideVBox.getStyleClass().add("Pages");
 
         //Menu Bar
@@ -55,14 +55,14 @@ public class StockReductionScene {
         inventoryItemsList.getStyleClass().add("combo-box");
         mainPane.getChildren().add(inventoryItemsList);
 
-        TextField depletionLevelEntry = new TextField();
-        depletionLevelEntry.setPromptText("Level of depletion");
-        depletionLevelEntry.setEditable(false);
-        depletionLevelEntry.setPrefWidth(300);
-        depletionLevelEntry.setLayoutX(362);
-        depletionLevelEntry.setLayoutY(172);
+        TextField reductionLevelEntry = new TextField();
+        reductionLevelEntry.setPromptText("Level of reduction");
+        reductionLevelEntry.setEditable(false);
+        reductionLevelEntry.setPrefWidth(300);
+        reductionLevelEntry.setLayoutX(362);
+        reductionLevelEntry.setLayoutY(172);
 
-        mainPane.getChildren().add(depletionLevelEntry);
+        mainPane.getChildren().add(reductionLevelEntry);
 
         Slider quantitySlider = new Slider(); //Declares a new Slider Control
         quantitySlider.setMin(0); //Sets the min value of the slider to be 0
@@ -78,7 +78,7 @@ public class StockReductionScene {
 
         quantitySlider.valueProperty().addListener((observable, old_value, new_value) -> {
             int sliderIntegerValue = (new_value.intValue());
-            depletionLevelEntry.setText("Reducing stock level by: " + (sliderIntegerValue));
+            reductionLevelEntry.setText("Reducing stock level by: " + (sliderIntegerValue));
         });
 
         Button cancelButton = new Button("Cancel");
@@ -99,7 +99,7 @@ public class StockReductionScene {
 
         outsideVBox.getChildren().add(mainPane);
 
-        return loginScene;
+        return stockReductionScene;
 
     }
 
