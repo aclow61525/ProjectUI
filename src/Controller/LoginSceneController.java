@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class LoginSceneController {
-    //Controllers are where the actions happen
 
     private Stage primaryStage;
 
@@ -14,9 +13,7 @@ public class LoginSceneController {
     }
 
     public void openLoginScene() {
-
         Scene homeScene = HomeScene.createScene(primaryStage);
         primaryStage.setScene(homeScene);
-
     }
 }

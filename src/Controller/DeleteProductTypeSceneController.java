@@ -1,13 +1,11 @@
 package Controller;
 
-import View.DeleteProductTypeScene;
 import View.HomeScene;
 import View.LoginScene;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class DeleteProductTypeSceneController {
-    //Controllers are where the actions happen
 
     private Stage primaryStage;
 
@@ -16,11 +14,10 @@ public class DeleteProductTypeSceneController {
     }
 
     public void logout() {
-
         Scene loginScene = LoginScene.createScene(primaryStage);
         primaryStage.setScene(loginScene);
-
     }
+
     public void exit(){
         System.exit(0);
     }

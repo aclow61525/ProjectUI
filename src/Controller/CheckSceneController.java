@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import java.util.concurrent.TimeUnit;
 
 public class CheckSceneController {
-    //Controllers are where the actions happen
     private Stage primaryStage;
 
     public CheckSceneController(Stage primaryStage) {
@@ -19,6 +18,7 @@ public class CheckSceneController {
         Scene loginScene = LoginScene.createScene(primaryStage);
         primaryStage.setScene(loginScene);
     }
+
     public void exit(){
         System.exit(0);
     }

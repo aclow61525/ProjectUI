@@ -3,7 +3,6 @@ package View;
 import Controller.CheckSceneController;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -41,7 +40,7 @@ public class CheckScene {
         pageTitle.setFont(Font.font("Segoe UI Light", FontWeight.BOLD, 40));
         outsideVBox.getChildren().add(pageTitle);
 
-        Pane homePane = new Pane();
+        Pane mainPane = new Pane();
 
         //TableView
         TableView orderCheckTable = new TableView();
@@ -62,7 +61,7 @@ public class CheckScene {
         orderCheckTable.setLayoutY(10);//Gives a 10 px padding
         orderCheckTable.setPrefHeight(490);
 
-        homePane.getChildren().add(orderCheckTable);
+        mainPane.getChildren().add(orderCheckTable);
 
         ProgressBar pi = new ProgressBar(0.6);
         pi.setPrefWidth(284);
@@ -70,7 +69,7 @@ public class CheckScene {
         pi.setLayoutX(732);
         pi.setLayoutY(250);
         pi.setVisible(false);
-        homePane.getChildren().add(pi);
+        mainPane.getChildren().add(pi);
 
         Button homeButton = new Button("Home");
         homeButton.setOnAction(ae -> controller.openHomeScene());
@@ -79,7 +78,7 @@ public class CheckScene {
         homeButton.setLayoutX(732);
         homeButton.setLayoutY(10);
         homeButton.getStyleClass().add("symbolButton");
-        homePane.getChildren().add(homeButton);
+        mainPane.getChildren().add(homeButton);
 
         Button checkButton = new Button("Run Check");
         checkButton.setOnAction(ae -> {
@@ -92,9 +91,9 @@ public class CheckScene {
         checkButton.setLayoutX(732);
         checkButton.setLayoutY(130);
         checkButton.getStyleClass().add("symbolButton");
-        homePane.getChildren().add(checkButton);
+        mainPane.getChildren().add(checkButton);
 
-        outsideVBox.getChildren().add(homePane);
+        outsideVBox.getChildren().add(mainPane);
 
         return checkScene;
     }

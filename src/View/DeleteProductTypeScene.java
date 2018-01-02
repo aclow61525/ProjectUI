@@ -1,6 +1,6 @@
 package View;
 
-import Controller.StockReductionSceneController;
+import Controller.DeleteProductTypeSceneController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -16,7 +16,7 @@ public class DeleteProductTypeScene {
 
     public static Scene createScene(Stage primaryStage) {
 
-        StockReductionSceneController controller = new StockReductionSceneController(primaryStage);
+        DeleteProductTypeSceneController controller = new DeleteProductTypeSceneController(primaryStage);
 
         VBox outsideVBox = new VBox();
         Scene deleteProductTypeScene = new Scene(outsideVBox, 1024, 576);

@@ -66,7 +66,7 @@ public class HomeScene {
         quickButtons[1] = new Button("-");
         quickButtons[1].setPrefSize(100, 50);
         quickButtons[1].getStyleClass().add("symbolButton");
-        quickButtons[1].setOnAction((ActionEvent ae) -> controller.openStockDepletionScene());
+        quickButtons[1].setOnAction((ActionEvent ae) -> controller.openStockReductionScene());
 
         quickButtons[2] = new Button("REFRESH");
         quickButtons[2].setPrefSize(100, 50);
@@ -82,7 +82,7 @@ public class HomeScene {
 
         outsideVBox.getChildren().add(quickFunctionsBar);
 
-        Pane homePane = new Pane();
+        Pane mainPane = new Pane();
 
         //TableView
         TableView inventoryTable = new TableView();
@@ -109,9 +109,9 @@ public class HomeScene {
         inventoryTable.setLayoutY(10);//Gives a 10 px padding
         inventoryTable.setPrefHeight(430);
 
-        homePane.getChildren().add(inventoryTable);
+        mainPane.getChildren().add(inventoryTable);
 
-        outsideVBox.getChildren().add(homePane);
+        outsideVBox.getChildren().add(mainPane);
 
         return homeScene;
 
