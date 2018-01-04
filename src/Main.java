@@ -1,6 +1,5 @@
 package View;
 
-import Model.*;
 import Model.DatabaseConnection;
 import Model.Product;
 import Model.ProductService;
@@ -16,14 +15,13 @@ public class Main extends Application {
     public static DatabaseConnection database;
 
     public static void main(String[] args) {
-        database = new DatabaseConnection( "Database/InventoryDatabase.db");
+        database = new DatabaseConnection("Database/InventoryDatabase.db");
 
         ArrayList<Product> testList = new ArrayList<>();
         ProductService.selectAll(testList, database);
 
         for (Product p: testList){
             System.out.println(p);
-
         }
 
         launch(args);
