@@ -4,6 +4,7 @@ import Model.DatabaseConnection;
 import Model.Product;
 import Model.ProductService;
 import View.*;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -51,15 +52,8 @@ public class HomeSceneController {
         primaryStage.setScene(openStockReductionScene);
     }
 
-    public void displayTable(){
+    public void populateTable(ObservableList<Product> testList){
         DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
-
-        ArrayList<Product> testList = new ArrayList<>();
         ProductService.selectAll(testList, database);
-
-        for (Product p: testList){
-            System.out.println(p);
-        }
-
     }
 }
