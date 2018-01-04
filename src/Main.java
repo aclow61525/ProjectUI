@@ -1,12 +1,33 @@
 package View;
 
+import Model.*;
+import Model.DatabaseConnection;
+import Model.Product;
+import Model.ProductService;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class Main extends Application {
 
+    public static DatabaseConnection database;
+
+    public static void main(String[] args) {
+        database = new DatabaseConnection( "Database/InventoryDatabase.db");
+
+        ArrayList<Product> testList = new ArrayList<>();
+        ProductService.selectAll(testList, database);
+
+        for (Product p: testList){
+            System.out.println(p);
+
+        }
+
+        launch(args);
+    }
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -19,9 +40,6 @@ public class Main extends Application {
 
         primaryStage.show();
 
-    }
-    public static void main(String[] args) {
-        launch(args);
     }
 
 }
