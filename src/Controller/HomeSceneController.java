@@ -1,8 +1,13 @@
 package Controller;
 
+import Model.DatabaseConnection;
+import Model.Product;
+import Model.ProductService;
 import View.*;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class HomeSceneController {
 
@@ -44,5 +49,17 @@ public class HomeSceneController {
     public void openStockReductionScene(){
         Scene openStockReductionScene = StockReductionScene.createScene(primaryStage);
         primaryStage.setScene(openStockReductionScene);
+    }
+
+    public void displayTable(){
+        DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
+
+        ArrayList<Product> testList = new ArrayList<>();
+        ProductService.selectAll(testList, database);
+
+        for (Product p: testList){
+            System.out.println(p);
+        }
+
     }
 }

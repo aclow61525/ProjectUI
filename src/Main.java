@@ -12,20 +12,11 @@ import java.util.ArrayList;
 
 public class Main extends Application {
 
-    public static DatabaseConnection database;
-
     public static void main(String[] args) {
-        database = new DatabaseConnection("Database/InventoryDatabase.db");
-
-        ArrayList<Product> testList = new ArrayList<>();
-        ProductService.selectAll(testList, database);
-
-        for (Product p: testList){
-            System.out.println(p);
-        }
 
         launch(args);
     }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 

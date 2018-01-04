@@ -1,9 +1,13 @@
 package View;
 
 import Controller.HomeSceneController;
+import Model.Product;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.Pane;
@@ -71,7 +75,7 @@ public class HomeScene {
         quickButtons[2] = new Button("REFRESH");
         quickButtons[2].setPrefSize(100, 50);
         quickButtons[2].getStyleClass().add("allButton");
-        //quickButtons[2].setOnAction((ActionEvent ae) -> doSomething());
+        quickButtons[2].setOnAction((ActionEvent ae) -> controller.displayTable());
 
         quickButtons[3] = new Button("CHECK");
         quickButtons[3].setPrefSize(100, 50);
@@ -85,22 +89,41 @@ public class HomeScene {
         Pane mainPane = new Pane();
 
         //TableView
+
+        ObservableList<Product> people = FXCollections.observableArrayList(
+                new Product(145, "Smith", 45, 45, 40, 12.5, 3, 2, 10),
+        new Product(145, "Smith", 456, 45, 40, 12.5, 3, 2, 10)
+        );
+
         TableView inventoryTable = new TableView();
         inventoryTable.setEditable(false);
         TableColumn productID = new TableColumn("Product ID");
         productID.setPrefWidth(142);
+        productID.setCellValueFactory(new PropertyValueFactory<>("productID"));
+
         TableColumn productName = new TableColumn("Product Name");
         productName.setPrefWidth(200);
+        productName.setCellValueFactory(new PropertyValueFactory<>("productName"));
+
         TableColumn productWidth = new TableColumn("Width");
         productWidth.setPrefWidth(100);
+        productWidth.setCellValueFactory(new PropertyValueFactory<>("productWidth"));
+
         TableColumn productHeight = new TableColumn("Height");
         productHeight.setPrefWidth(100);
+        productHeight.setCellValueFactory(new PropertyValueFactory<>("productHeight"));
+
         TableColumn productDepth = new TableColumn("Depth");
         productDepth.setPrefWidth(100);
+        productDepth.setCellValueFactory(new PropertyValueFactory<>("productDepth"));
+
         TableColumn quantityHeld = new TableColumn("Quantity Held");
         quantityHeld.setPrefWidth(180);
+        quantityHeld.setCellValueFactory(new PropertyValueFactory<>("quantityHeld"));
+
         TableColumn maxQuantity = new TableColumn("Max Quantity");
         maxQuantity.setPrefWidth(180);
+        maxQuantity.setCellValueFactory(new PropertyValueFactory<>("maxQuantity"));
 
         inventoryTable.getColumns().addAll(productID, productName, productWidth, productHeight, productDepth, quantityHeld, maxQuantity);
         inventoryTable.setPrefWidth(1000);
@@ -108,6 +131,8 @@ public class HomeScene {
 
         inventoryTable.setLayoutY(10);//Gives a 10 px padding
         inventoryTable.setPrefHeight(430);
+
+        inventoryTable.setItems(people);
 
         mainPane.getChildren().add(inventoryTable);
 
