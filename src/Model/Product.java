@@ -1,100 +1,98 @@
 package Model;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-
 public class Product {
-    private final SimpleIntegerProperty productID;
-    private final SimpleStringProperty productName;
-    private final SimpleIntegerProperty productWidth;
-    private final SimpleIntegerProperty productHeight;
-    private final SimpleIntegerProperty productDepth;
-    private final SimpleDoubleProperty productWeight;
-    private final SimpleIntegerProperty quantityHeld;
-    private final SimpleIntegerProperty reorderThreshold;
-    private final SimpleIntegerProperty maxQuantity;
+    private int productID;
+    private String productName;
+    private int productWidth;
+    private int productHeight;
+    private int productDepth;
+    private double productWeight;
+    private int quantityHeld;
+    private int reorderThreshold;
+    private int maxQuantity;
 
     public Product(int productID, String productName, int productWidth, int productHeight, int productDepth, double productWeight, int quantityHeld, int reorderThreshold, int maxQuantity) {
-        this.productID = new SimpleIntegerProperty(productID);
-        this.productName = new SimpleStringProperty(productName);
-        this.productWidth = new SimpleIntegerProperty(productWidth);
-        this.productHeight = new SimpleIntegerProperty(productHeight);
-        this.productDepth = new SimpleIntegerProperty(productDepth);
-        this.productWeight = new SimpleDoubleProperty(productWeight);
-        this.quantityHeld = new SimpleIntegerProperty(quantityHeld);
-        this.reorderThreshold = new SimpleIntegerProperty(reorderThreshold);
-        this.maxQuantity = new SimpleIntegerProperty(maxQuantity);
+        this.productID = productID;
+        this.productName = productName;
+        this.productWidth = productWidth;
+        this.productHeight = productHeight;
+        this.productDepth = productDepth;
+        this.productWeight = productWeight;
+        this.quantityHeld = quantityHeld;
+        this.reorderThreshold = reorderThreshold;
+        this.maxQuantity = maxQuantity;
     }
 
     public int getProductID() {
-        return productID.get();
+        return productID;
     }
 
     public void setProductID(int productID) {
-        this.productID.set(productID);
+        this.productID = productID;
     }
 
     public String getProductName() {
-        return productName.get();
+        return productName;
     }
 
     public void setProductName(String productName) {
-        this.productName.set(productName);
+        this.productName = productName;
     }
 
     public int getProductWidth() {
-        return productWidth.get();
+        return productWidth;
     }
 
     public void setProductWidth(int productWidth) {
-        this.productWidth.set(productWidth);
+        this.productWidth = productWidth;
     }
 
     public int getProductHeight() {
-        return productHeight.get();
+        return productHeight;
     }
 
     public void setProductHeight(int productHeight) {
-        this.productHeight.set(productHeight);
+        this.productHeight = productHeight;
     }
 
     public int getProductDepth() {
-        return productDepth.get();
+        return productDepth;
     }
 
     public void setProductDepth(int productDepth) {
-        this.productDepth.set(productDepth);
+        this.productDepth = productDepth;
     }
 
     public double getProductWeight() {
-        return productWeight.get();
+        return productWeight;
     }
 
     public void setProductWeight(double productWeight) {
-        this.productWeight.set(productWeight);
+        this.productWeight = productWeight;
     }
 
     public int getQuantityHeld() {
-        return quantityHeld.get();
+        return quantityHeld;
     }
 
     public void setQuantityHeld(int quantityHeld) {
-        this.quantityHeld.set(quantityHeld);
+        this.quantityHeld = quantityHeld;
     }
 
     public int getReorderThreshold() {
-        return reorderThreshold.get();
+        return reorderThreshold;
     }
 
-    public void setReorderThreshold(int reorderThreshold) {this.reorderThreshold.set(reorderThreshold);}
+    public void setReorderThreshold(int reorderThreshold) {
+        this.reorderThreshold = reorderThreshold;
+    }
 
     public int getMaxQuantity() {
-        return maxQuantity.get();
+        return maxQuantity;
     }
 
     public void setMaxQuantity(int maxQuantity) {
-        this.maxQuantity.set(maxQuantity);
+        this.maxQuantity = maxQuantity;
     }
 
     @Override
