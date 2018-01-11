@@ -37,11 +37,19 @@ public class StockAdditionSceneController {
         DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
         ProductService.selectAll(productTypeList, database);
     }
-    public void stockAddition(ComboBox inventoryItemsList, int sliderIntegerValue){
-        //DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
+    public void stockAddition(ComboBox<Product> inventoryItemsList, int sliderIntegerValue){
+        DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
+        ProductService.stockAddition(database);
+
         System.out.println(inventoryItemsList.getSelectionModel().getSelectedItem());
-        Product selectedProduct = new Product(inventoryItemsList.getSelectionModel().getSelectedItem());
-        System.out.println(sliderIntegerValue);
+        Product selectedProduct = inventoryItemsList.getSelectionModel().getSelectedItem();
+
+        System.out.println("Before " + selectedProduct + ": " + selectedProduct.getQuantityHeld());
+
+        selectedProduct.setQuantityHeld(selectedProduct.getQuantityHeld() + sliderIntegerValue);
+
+        System.out.println("After " + selectedProduct + ": " + selectedProduct.getQuantityHeld());
+
         //ProductService.selectAll(productTypeList, database);
     }
 }

@@ -8,12 +8,12 @@ import java.util.List;
 public class ProductService {
     public static void selectAll(List<Product> productList, DatabaseConnection database) {
 
-        PreparedStatement statement = database.newStatement("SELECT * FROM ProductDetails ORDER BY productID");
+        PreparedStatement selectAllStatement = database.newStatement("SELECT * FROM ProductDetails ORDER BY productID");
 
         try {
-            if (statement != null) {
+            if (selectAllStatement != null) {
 
-                ResultSet results = database.executeQuery(statement);
+                ResultSet results = database.executeQuery(selectAllStatement);
 
                 if (results != null) {
                     while (results.next()) {
@@ -33,33 +33,22 @@ public class ProductService {
         } catch (SQLException resultsException) {
             System.out.println("Database select all error: " + resultsException.getMessage());
         }
+        database.disconnect();
     }
-    public static void stockAddition(List<Product> productList, DatabaseConnection database) {
+    public static void stockAddition(DatabaseConnection database) {
 
-        PreparedStatement statement = database.newStatement("UPDATE * FROM ProductDetails ORDER BY productID");
+        int newQuantityVal = 84;
+        int targetProductID = 3;
+        PreparedStatement stockAdditionStatement = database.newStatement("UPDATE ProductDetails SET quantityHeld = " + newQuantityVal + " WHERE productID = " + targetProductID + ";");
 
         try {
-            if (statement != null) {
-
-                ResultSet results = database.executeQuery(statement);
-
-                if (results != null) {
-                    while (results.next()) {
-                        productList.add(new Product(
-                                results.getInt("productID"),
-                                results.getString("productName"),
-                                results.getInt("productWidth"),
-                                results.getInt("productHeight"),
-                                results.getInt("productDepth"),
-                                results.getDouble("productWeight"),
-                                results.getInt("quantityHeld"),
-                                results.getInt("reorderThreshold"),
-                                results.getInt("maxQuantity")));
-                    }
-                }
+            if (stockAdditionStatement != null) {
+                database.executeUpdate(stockAdditionStatement);
             }
-        } catch (SQLException resultsException) {
-            System.out.println("Database select all error: " + resultsException.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Database update error: " + ex.getMessage());
         }
+
+        database.disconnect();
     }
 }

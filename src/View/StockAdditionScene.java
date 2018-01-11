@@ -49,7 +49,7 @@ public class StockAdditionScene {
         ObservableList<Product> productTypeList = FXCollections.observableArrayList();
         controller.populateDropDown(productTypeList);
 
-        ComboBox inventoryItemsList = new ComboBox(productTypeList);
+        ComboBox<Product> inventoryItemsList = new ComboBox<>(productTypeList);
         inventoryItemsList.setPromptText("Select an item from the database");
         inventoryItemsList.setPrefWidth(300);
         inventoryItemsList.setLayoutX(362);
