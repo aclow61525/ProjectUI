@@ -53,6 +53,7 @@ public class HomeSceneController {
     }
 
     public void populateTable(ObservableList<Product> testList){
+        testList.clear();
         DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
         ProductService.selectAll(testList, database);
     }
