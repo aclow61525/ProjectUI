@@ -1,6 +1,7 @@
 package View;
 
 import Controller.StockAdditionSceneController;
+import Model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -45,9 +46,10 @@ public class StockAdditionScene {
 
         Pane mainPane = new Pane();
 
-        ObservableList<String> inventoryItems =  FXCollections.observableArrayList("Option 1",  "Option 2", "Option 3");
+        ObservableList<Product> productTypeList = FXCollections.observableArrayList();
+        controller.populateDropDown(productTypeList);
 
-        ComboBox inventoryItemsList = new ComboBox(inventoryItems);
+        ComboBox inventoryItemsList = new ComboBox(productTypeList);
         inventoryItemsList.setPromptText("Select an item from the database");
         inventoryItemsList.setPrefWidth(300);
         inventoryItemsList.setLayoutX(362);

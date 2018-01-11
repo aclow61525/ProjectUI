@@ -1,7 +1,11 @@
 package Controller;
 
+import Model.DatabaseConnection;
+import Model.Product;
+import Model.ProductService;
 import View.HomeScene;
 import View.LoginScene;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -25,5 +29,10 @@ public class StockAdditionSceneController {
     public void openHomeScene(){
         Scene homeScene = HomeScene.createScene(primaryStage);
         primaryStage.setScene(homeScene);
+    }
+    public void populateDropDown(ObservableList<Product> productTypeList){
+        productTypeList.clear();
+        DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
+        ProductService.selectAll(productTypeList, database);
     }
 }

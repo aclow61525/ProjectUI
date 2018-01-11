@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class HomeScene {
-    private static ObservableList<Product> testList = FXCollections.observableArrayList();
+    private static ObservableList<Product> productList = FXCollections.observableArrayList();
 
     public static Scene createScene(Stage primaryStage) {
 
@@ -76,7 +76,7 @@ public class HomeScene {
         quickButtons[2] = new Button("REFRESH");
         quickButtons[2].setPrefSize(100, 50);
         quickButtons[2].getStyleClass().add("allButton");
-        quickButtons[2].setOnAction((ActionEvent ae) -> controller.populateTable(testList));
+        quickButtons[2].setOnAction((ActionEvent ae) -> controller.populateTable(productList));
 
         quickButtons[3] = new Button("CHECK");
         quickButtons[3].setPrefSize(100, 50);
@@ -115,9 +115,9 @@ public class HomeScene {
         inventoryTable.setLayoutY(10);
         inventoryTable.setPrefHeight(430);
 
-        controller.populateTable(testList);
+        controller.populateTable(productList);
 
-        inventoryTable.setItems(testList);
+        inventoryTable.setItems(productList);
 
         productID.setCellValueFactory(new PropertyValueFactory<>("productID"));
         productName.setCellValueFactory(new PropertyValueFactory<>("productName"));
