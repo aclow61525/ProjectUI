@@ -94,7 +94,7 @@ public class StockAdditionScene {
         Button confirmButton = new Button("Confirm");
         confirmButton.setOnAction(ae -> {
             int sliderIntegerValue = quantitySlider.valueProperty().intValue();
-            controller.stockAddition(inventoryItemsList, sliderIntegerValue);
+            controller.prepareStockAddition(inventoryItemsList, sliderIntegerValue);
         });
         confirmButton.setPrefWidth(300);
         confirmButton.setLayoutX(517);

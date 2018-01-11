@@ -35,11 +35,8 @@ public class ProductService {
         }
         database.disconnect();
     }
-    public static void stockAddition(DatabaseConnection database) {
-
-        int newQuantityVal = 84;
-        int targetProductID = 3;
-        PreparedStatement stockAdditionStatement = database.newStatement("UPDATE ProductDetails SET quantityHeld = " + newQuantityVal + " WHERE productID = " + targetProductID + ";");
+    public static void stockAddition(DatabaseConnection database, int targetProductID, int productNewQuantity) {
+        PreparedStatement stockAdditionStatement = database.newStatement("UPDATE ProductDetails SET quantityHeld = " + productNewQuantity + " WHERE productID = " + targetProductID + ";");
 
         try {
             if (stockAdditionStatement != null) {
