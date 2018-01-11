@@ -41,7 +41,7 @@ public class StockAdditionSceneController {
         Product selectedProduct = inventoryItemsList.getSelectionModel().getSelectedItem();
 
         if(sliderIntegerValue <= 0){
-            outputAlertMessage("Stock Addition Must be more than zero");
+            outputAlertMessage("Stock addition must be more than zero");
             return;
         }
 
@@ -71,9 +71,9 @@ public class StockAdditionSceneController {
 
         DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
 
-        ProductService.stockAddition(database, targetProductID, productNewQuantity);
+        ProductService.stockUpdate(database, targetProductID, productNewQuantity);
 
-        outputAlertMessage("Stock level now at: " + productNewQuantity + ".");
+        outputAlertMessage("Stock level updated to: " + productNewQuantity + ".");
         openHomeScene();
     }
 
