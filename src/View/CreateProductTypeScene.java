@@ -10,8 +10,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class CreateProductTypeScene {
+import java.util.Arrays;
 
+public class CreateProductTypeScene {
     public static Scene createScene(Stage primaryStage) {
 
         CreateProductTypeSceneController controller = new CreateProductTypeSceneController(primaryStage);
@@ -112,7 +113,19 @@ public class CreateProductTypeScene {
         mainPane.getChildren().add(productWeightTF);
 
         Button confirmButton = new Button("Confirm");
-        //confirmButton.setOnAction(ae -> controller.opencreateProductTypeScene());
+        confirmButton.setOnAction(ae -> {
+            //Transferring to an array later as this means that only the string values are passed
+            String[] textFieldInputs = new String[8];
+            textFieldInputs[0] =  productNameTF.getText();
+            textFieldInputs[1] =  initialStockQuantityTF.getText();
+            textFieldInputs[2] =  maxStockQuantityTF.getText();
+            textFieldInputs[3] =  reorderThresholdTF.getText();
+            textFieldInputs[4] =  productWidthTF.getText();
+            textFieldInputs[5] =  productHeightTF.getText();
+            textFieldInputs[6] =  productDepthTF.getText();
+            textFieldInputs[7] =  productWeightTF.getText();
+            controller.prepareCreateProductType(textFieldInputs);
+        });
         confirmButton.setPrefWidth(300);
         confirmButton.setLayoutX(635.5);
         confirmButton.setLayoutY(446);
