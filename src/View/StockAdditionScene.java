@@ -79,7 +79,7 @@ public class StockAdditionScene {
         mainPane.getChildren().add(quantitySlider); //Adds the slider to the Pane
 
         quantitySlider.valueProperty().addListener((observable, old_value, new_value) -> {
-            int sliderIntegerValue = (new_value.intValue());
+            int sliderIntegerValue = new_value.intValue();
             additionLevelEntry.setText("Increasing stock level by: " + (sliderIntegerValue));
         });
 
@@ -92,7 +92,10 @@ public class StockAdditionScene {
         mainPane.getChildren().add(cancelButton);
 
         Button confirmButton = new Button("Confirm");
-        //confirmButton.setOnAction(ae -> controller.()); //This will call stock reduction method, when implemented
+        confirmButton.setOnAction(ae -> {
+            int sliderIntegerValue = quantitySlider.valueProperty().intValue();
+            controller.stockAddition(inventoryItemsList, sliderIntegerValue);
+        });
         confirmButton.setPrefWidth(300);
         confirmButton.setLayoutX(517);
         confirmButton.setLayoutY(402);
@@ -106,3 +109,4 @@ public class StockAdditionScene {
     }
 
 }
+//System.out.println(inventoryItemsList.getSelectionModel().getSelectedItem()))
