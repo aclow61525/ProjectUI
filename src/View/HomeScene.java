@@ -42,6 +42,7 @@ public class HomeScene {
 
         Menu fileMenu = new Menu("Database");
         MenuItem fileMenuItem1 = new MenuItem("Refresh Database");
+        fileMenuItem1.setOnAction(ae -> controller.populateTable(productList));
         fileMenu.getItems().addAll(fileMenuItem1);
 
         Menu productMenu = new Menu("Product");

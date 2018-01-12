@@ -48,18 +48,17 @@ public class ProductService {
 
         database.disconnect();
     }
-    public static void createNewProduct(DatabaseConnection database, String[] testFieldInputs) {
-        PreparedStatement productCreationStatement = database.newStatement("INSERT INTO ProductDetails (ProductName, ProductWidth, ProductHeight, ProductDepth, ProductWeight, QuantityHeld, ReorderThreshold, MaxQuantity) VALUES (" + testFieldInputs[0] + ", " + testFieldInputs[4] + ", " + testFieldInputs[5] + ", " + testFieldInputs[6] + ", " + testFieldInputs[7] + ", " + testFieldInputs[1] + ", " + testFieldInputs[3] + ", " + testFieldInputs[2] + ")");
+    public static void createNewProduct(DatabaseConnection database, String[] textFieldInputs) throws SQLException {
+        PreparedStatement productCreationStatement = database.newStatement("INSERT INTO ProductDetails (ProductName, ProductWidth, ProductHeight, ProductDepth, ProductWeight, QuantityHeld, ReorderThreshold, MaxQuantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-
-        /*textFieldInputs[0] =  productNameTF.getText();
-        textFieldInputs[1] =  initialStockQuantityTF.getText();
-        textFieldInputs[2] =  maxStockQuantityTF.getText();
-        textFieldInputs[3] =  reorderThresholdTF.getText();
-        textFieldInputs[4] =  productWidthTF.getText();
-        textFieldInputs[5] =  productHeightTF.getText();
-        textFieldInputs[6] =  productDepthTF.getText();
-        textFieldInputs[7] =  productWeightTF.getText();*/
+        productCreationStatement.setString(1, textFieldInputs[0]);
+        productCreationStatement.setString(2, textFieldInputs[4]);
+        productCreationStatement.setString(3, textFieldInputs[5]);
+        productCreationStatement.setString(4, textFieldInputs[6]);
+        productCreationStatement.setString(5, textFieldInputs[7]);
+        productCreationStatement.setString(6, textFieldInputs[1]);
+        productCreationStatement.setString(7, textFieldInputs[3]);
+        productCreationStatement.setString(8, textFieldInputs[2]);
 
         try {
             if (productCreationStatement != null) {

@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 
 public class CreateProductTypeSceneController {
@@ -35,17 +36,6 @@ public class CreateProductTypeSceneController {
     }
 
     public void prepareCreateProductType(String[] textFieldInputs){
-        /*textFieldInputs[0] =  productNameTF.getText();
-        textFieldInputs[1] =  initialStockQuantityTF.getText();
-        textFieldInputs[2] =  maxStockQuantityTF.getText();
-        textFieldInputs[3] =  reorderThresholdTF.getText();
-        textFieldInputs[4] =  productWidthTF.getText();
-        textFieldInputs[5] =  productHeightTF.getText();
-        textFieldInputs[6] =  productDepthTF.getText();
-        textFieldInputs[7] =  productWeightTF.getText();*/
-
-        System.out.println(Arrays.toString(textFieldInputs));
-
         int initialStockQuantity;
         try{
             initialStockQuantity = Integer.parseInt(textFieldInputs[1]);
@@ -133,9 +123,15 @@ public class CreateProductTypeSceneController {
 
         DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
 
-        ProductService.createNewProduct(database, textFieldInputs);
+        try {
+            ProductService.createNewProduct(database, textFieldInputs);
+        } catch (SQLException e) {
+            outputAlertMessage("Something went wrong");
+            e.printStackTrace();
+            return;
+        }
 
-        outputAlertMessage("Stock level updated to: " + ".");
+        outputAlertMessage("New product created successfully!");
         openHomeScene();
     }
 
