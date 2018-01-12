@@ -73,7 +73,7 @@ public class StockAdditionSceneController {
 
         ProductService.stockUpdate(database, targetProductID, productNewQuantity);
 
-        outputAlertMessage("Stock level updated to: " + productNewQuantity + ".");
+        outputAlertMessage("Stock level updated to: " + productNewQuantity);
         openHomeScene();
     }
 

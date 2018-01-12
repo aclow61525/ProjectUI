@@ -1,17 +1,14 @@
 package Controller;
 
 import Model.DatabaseConnection;
-import Model.Product;
 import Model.ProductService;
 import View.HomeScene;
 import View.LoginScene;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
-import java.util.Arrays;
 
 public class CreateProductTypeSceneController {
 

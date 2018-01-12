@@ -64,18 +64,12 @@ public class StockReductionSceneController {
             outputAlertMessage("New product quantity is below zero");
             return;
         }
-/*
-        int productMaxQuantity = selectedProduct.getMaxQuantity();
-        if(productNewQuantity > productMaxQuantity){
-            outputAlertMessage("The desired new quantity is higher than the max quantity");
-            return;
-        }*/
 
         DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
 
         ProductService.stockUpdate(database, targetProductID, productNewQuantity);
 
-        outputAlertMessage("Stock level updated to: " + productNewQuantity + ".");
+        outputAlertMessage("Stock level updated to: " + productNewQuantity);
         openHomeScene();
     }
 

@@ -1,5 +1,6 @@
 package Model;
 
+import javax.xml.crypto.Data;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +8,6 @@ import java.util.List;
 
 public class ProductService {
     public static void selectAll(List<Product> productList, DatabaseConnection database) {
-
         PreparedStatement selectAllStatement = database.newStatement("SELECT * FROM ProductDetails ORDER BY productID");
 
         try {
@@ -48,6 +48,7 @@ public class ProductService {
 
         database.disconnect();
     }
+
     public static void createNewProduct(DatabaseConnection database, String[] textFieldInputs) throws SQLException {
         PreparedStatement productCreationStatement = database.newStatement("INSERT INTO ProductDetails (ProductName, ProductWidth, ProductHeight, ProductDepth, ProductWeight, QuantityHeld, ReorderThreshold, MaxQuantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
@@ -70,5 +71,31 @@ public class ProductService {
 
         database.disconnect();
     }
+    public static void deleteProductType(DatabaseConnection database, int selectedProductID) {
+        PreparedStatement productDeletionStatement = database.newStatement("DELETE FROM ProductDetails WHERE productID = " + selectedProductID);
 
+        try {
+            if (productDeletionStatement != null) {
+                database.executeUpdate(productDeletionStatement);
+            }
+        } catch (Exception ex) {
+            System.err.println("Database delete product error: " + ex.getMessage());
+        }
+
+        database.disconnect();
+    }
+    public static void reorderProducts(DatabaseConnection database){
+        System.out.println("here");
+        PreparedStatement productReorderStatement = database.newStatement("ALTER TABLE ProductDetails AUTO_INCREMENT = VALUE");
+
+        try {
+            if (productReorderStatement != null) {
+                database.executeUpdate(productReorderStatement);
+            }
+        } catch (Exception ex) {
+            System.err.println("Database delete product error: " + ex.getMessage());
+        }
+
+        database.disconnect();
+    }
 }

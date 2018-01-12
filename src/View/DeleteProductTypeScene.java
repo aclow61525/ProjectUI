@@ -1,6 +1,7 @@
 package View;
 
 import Controller.DeleteProductTypeSceneController;
+import Model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -45,9 +46,10 @@ public class DeleteProductTypeScene {
 
         Pane mainPane = new Pane();
 
-        ObservableList<String> inventoryItems =  FXCollections.observableArrayList("Option 1",  "Option 2", "Option 3");
+        ObservableList<Product> productTypeList = FXCollections.observableArrayList();
+        controller.populateDropDown(productTypeList);
 
-        ComboBox inventoryItemsList = new ComboBox(inventoryItems);
+        ComboBox<Product> inventoryItemsList = new ComboBox<>(productTypeList);
         inventoryItemsList.setPromptText("Select an item from the database");
         inventoryItemsList.setPrefWidth(300);
         inventoryItemsList.setLayoutX(362);
@@ -64,7 +66,7 @@ public class DeleteProductTypeScene {
         mainPane.getChildren().add(cancelButton);
 
         Button confirmButton = new Button("Confirm");
-        //confirmButton.setOnAction(ae -> controller.()); //This will call stock reduction method, when implemented
+        confirmButton.setOnAction(ae -> controller.prepareProductDeletion(inventoryItemsList));
         confirmButton.setPrefWidth(300);
         confirmButton.setLayoutX(517);
         confirmButton.setLayoutY(402);
