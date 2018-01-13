@@ -31,12 +31,12 @@ public class LoginScene {
 
         Pane mainPane = new Pane();
 
-        TextField userNameField = new TextField();
-        userNameField.setPromptText("Username");
-        userNameField.setPrefWidth(300);
-        userNameField.setLayoutX(362);
-        userNameField.setLayoutY(134);
-        mainPane.getChildren().add(userNameField);
+        TextField customerIDField = new TextField();
+        customerIDField.setPromptText("Customer ID");
+        customerIDField.setPrefWidth(300);
+        customerIDField.setLayoutX(362);
+        customerIDField.setLayoutY(134);
+        mainPane.getChildren().add(customerIDField);
 
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Password");
@@ -46,7 +46,7 @@ public class LoginScene {
         mainPane.getChildren().add(passwordField);
 
         Button loginButton = new Button("Login");
-        loginButton.setOnAction(ae -> controller.openLoginScene());
+        loginButton.setOnAction(ae -> controller.checkLoginCredentials(customerIDField, passwordField));
         loginButton.setPrefWidth(300);
         loginButton.setLayoutX(362);
         loginButton.setLayoutY(402);

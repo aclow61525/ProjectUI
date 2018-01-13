@@ -1,9 +1,7 @@
 package View;
 
 import Controller.HomeSceneController;
-import Model.DatabaseConnection;
 import Model.Product;
-import Model.ProductService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,14 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import javax.xml.crypto.Data;
 
 public class HomeScene {
     private static ObservableList<Product> productList = FXCollections.observableArrayList();
