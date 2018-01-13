@@ -27,6 +27,7 @@ public class LoginScene {
         Text pageTitle = new Text();
         pageTitle.setText("Login");
         pageTitle.setFont(Font.font("Segoe UI Light", FontWeight.BOLD, 40));
+        pageTitle.setOnMouseClicked(ae -> controller.openHomeScene());
         outsideVBox.getChildren().add(pageTitle);
 
         Pane mainPane = new Pane();
