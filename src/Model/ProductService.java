@@ -1,10 +1,12 @@
 package Model;
 
-import javax.xml.crypto.Data;
+import javafx.collections.ObservableList;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Observable;
 
 public class ProductService {
     public static void selectAll(List<Product> productList, DatabaseConnection database) {
@@ -84,18 +86,30 @@ public class ProductService {
 
         database.disconnect();
     }
-    public static void reorderProducts(DatabaseConnection database){
-        System.out.println("here");
-        PreparedStatement productReorderStatement = database.newStatement("ALTER TABLE ProductDetails AUTO_INCREMENT = VALUE");
+    public static void createRestockOrder(DatabaseConnection database, ObservableList<ReorderProduct> resultsList){
+        //Check statement is accurate
+        /*
+        PreparedStatement productReorderStatement = database.newStatement("INSERT INTO ReorderTable (ProductID, ProductName, QuantityHeld, MaxStock, ReorderAmount) VALUES (?, ?, ?, ?, ?)");
 
-        try {
-            if (productReorderStatement != null) {
-                database.executeUpdate(productReorderStatement);
+        if (resultsList != null){
+            try {
+                for (int x = 0; x < resultsList.size(); x++){
+                    //the list created in the controller is unpacked
+                    ReorderProduct holdProduct = new ReorderProduct(resultsList.get(x));
+
+                    productReorderStatement.setInt(1, holdProduct.getProductID());
+                    productReorderStatement.setString(2, holdProduct.getProductName());
+                    productReorderStatement.setInt(3, holdProduct.getQuantityHeld());
+                    productReorderStatement.setInt(4, holdProduct.getMaxQuantity());
+                    productReorderStatement.setInt(5, holdProduct.getReorderAmount());
+
+                    productReorderStatement.executeUpdate();
+                }
+
+            }catch(Exception e){
+                e.printStackTrace();
             }
-        } catch (Exception ex) {
-            System.err.println("Database delete product error: " + ex.getMessage());
-        }
-
+        }*/
         database.disconnect();
     }
 }

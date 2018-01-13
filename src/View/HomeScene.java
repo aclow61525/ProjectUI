@@ -86,12 +86,7 @@ public class HomeScene {
         quickButtons[3] = new Button("CHECK");
         quickButtons[3].setPrefSize(100, 50);
         quickButtons[3].getStyleClass().add("allButton");
-        //quickButtons[3].setOnAction((ActionEvent ae) -> controller.openCheckScene());
-
-        quickButtons[3].setOnAction((ActionEvent ae) -> {
-            DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
-            ProductService.reorderProducts(database);
-        });
+        quickButtons[3].setOnAction((ActionEvent ae) -> controller.openCheckScene());
 
         quickFunctionsBar.getChildren().addAll(quickButtons);
 
@@ -100,25 +95,28 @@ public class HomeScene {
         Pane mainPane = new Pane();
 
         //TableView
-
         TableView inventoryTable = new TableView();
         inventoryTable.setEditable(false);
-        TableColumn productID = new TableColumn("Product ID");
-        productID.setPrefWidth(142);
-        TableColumn productName = new TableColumn("Product Name");
-        productName.setPrefWidth(200);
+        TableColumn productID = new TableColumn("ID");
+        productID.setPrefWidth(50);
+        TableColumn productName = new TableColumn("Name");
+        productName.setPrefWidth(180);
+        TableColumn quantityHeld = new TableColumn("In Stock");
+        quantityHeld.setPrefWidth(160);
+        TableColumn reorderLevel = new TableColumn("Reorder Level");
+        reorderLevel.setPrefWidth(195);
+        TableColumn maxQuantity = new TableColumn("Max Level");
+        maxQuantity.setPrefWidth(170);
         TableColumn productWidth = new TableColumn("Width");
         productWidth.setPrefWidth(100);
         TableColumn productHeight = new TableColumn("Height");
         productHeight.setPrefWidth(100);
         TableColumn productDepth = new TableColumn("Depth");
         productDepth.setPrefWidth(100);
-        TableColumn quantityHeld = new TableColumn("Quantity Held");
-        quantityHeld.setPrefWidth(180);
-        TableColumn maxQuantity = new TableColumn("Max Quantity");
-        maxQuantity.setPrefWidth(180);
+        TableColumn productWeight = new TableColumn("Weight");
+        productWeight.setPrefWidth(110);
 
-        inventoryTable.getColumns().addAll(productID, productName, productWidth, productHeight, productDepth, quantityHeld, maxQuantity);
+        inventoryTable.getColumns().addAll(productID, productName, quantityHeld, reorderLevel, maxQuantity, productWidth, productHeight, productDepth, productWeight);
         inventoryTable.setPrefWidth(1000);
         inventoryTable.setLayoutX(12);
 
@@ -134,7 +132,9 @@ public class HomeScene {
         productWidth.setCellValueFactory(new PropertyValueFactory<>("productWidth"));
         productHeight.setCellValueFactory(new PropertyValueFactory<>("productHeight"));
         productDepth.setCellValueFactory(new PropertyValueFactory<>("productDepth"));
+        productWeight.setCellValueFactory(new PropertyValueFactory<>("productWeight"));
         quantityHeld.setCellValueFactory(new PropertyValueFactory<>("quantityHeld"));
+        reorderLevel.setCellValueFactory(new PropertyValueFactory<>("reorderThreshold"));
         maxQuantity.setCellValueFactory(new PropertyValueFactory<>("maxQuantity"));
 
         mainPane.getChildren().add(inventoryTable);

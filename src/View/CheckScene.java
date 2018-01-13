@@ -1,8 +1,13 @@
 package View;
 
 import Controller.CheckSceneController;
+import Model.Product;
+import Model.ReorderProduct;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -11,6 +16,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class CheckScene {
+
+    private static ObservableList<ReorderProduct> resultsList = FXCollections.observableArrayList();
+
+
     public static Scene createScene(Stage primaryStage) {
         CheckSceneController controller = new CheckSceneController(primaryStage);
 
@@ -45,31 +54,33 @@ public class CheckScene {
         //TableView
         TableView orderCheckTable = new TableView();
         orderCheckTable.setEditable(false);
-        TableColumn productID = new TableColumn("Product ID");
-        productID.setPrefWidth(150);
-        TableColumn productName = new TableColumn("Product Name");
-        productName.setPrefWidth(200);
-        TableColumn quantityHeld = new TableColumn("Quantity Held");
-        quantityHeld.setPrefWidth(180);
-        TableColumn maxQuantity = new TableColumn("Max Quantity");
+        TableColumn productID = new TableColumn("ID");
+        productID.setPrefWidth(50);
+        TableColumn productName = new TableColumn("Name");
+        productName.setPrefWidth(165);
+        TableColumn quantityHeld = new TableColumn("In Stock");
+        quantityHeld.setPrefWidth(140);
+        TableColumn maxQuantity = new TableColumn("Max Stock");
         maxQuantity.setPrefWidth(180);
+        TableColumn reorderAmount = new TableColumn("To Reorder");
+        reorderAmount.setPrefWidth(200);
 
-        orderCheckTable.getColumns().addAll(productID, productName, quantityHeld, maxQuantity);
+        orderCheckTable.getColumns().addAll(productID, productName, quantityHeld, maxQuantity, reorderAmount);
         orderCheckTable.setPrefWidth(710);
         orderCheckTable.setLayoutX(10);
-
-        orderCheckTable.setLayoutY(10);//Gives a 10 px padding
+        orderCheckTable.setLayoutY(10);
         orderCheckTable.setPrefHeight(490);
 
-        mainPane.getChildren().add(orderCheckTable);
+        resultsList.clear();
+        orderCheckTable.setItems(resultsList);
 
-        ProgressBar pi = new ProgressBar(0.6);
-        pi.setPrefWidth(284);
-        pi.setPrefHeight(110);
-        pi.setLayoutX(732);
-        pi.setLayoutY(250);
-        pi.setVisible(false);
-        mainPane.getChildren().add(pi);
+        productID.setCellValueFactory(new PropertyValueFactory<>("productID"));
+        productName.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        quantityHeld.setCellValueFactory(new PropertyValueFactory<>("quantityHeld"));
+        maxQuantity.setCellValueFactory(new PropertyValueFactory<>("maxQuantity"));
+        reorderAmount.setCellValueFactory(new PropertyValueFactory<>("reorderAmount"));
+
+        mainPane.getChildren().add(orderCheckTable);
 
         Button homeButton = new Button("Home");
         homeButton.setOnAction(ae -> controller.openHomeScene());
@@ -82,7 +93,8 @@ public class CheckScene {
 
         Button checkButton = new Button("Run Check");
         checkButton.setOnAction(ae -> {
-            controller.scanDatabase();
+            pageTitle.setText("Running Check");
+            controller.scanDatabase(resultsList);
             pageTitle.setText("Stock check completed");
             homeButton.setText("Return Home");
             checkButton.setVisible(false);});
