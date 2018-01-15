@@ -21,14 +21,14 @@ public class LoginSceneController {
     }
 
     public void checkLoginCredentials(TextField customerIDField, PasswordField passwordField){
-        String givenUserID = customerIDField.getText();
+        String userID = customerIDField.getText();
 
-        if (givenUserID.length() != 5){
+        if (userID.length() != 5){
             outputAlertMessage("UserID is incorrect");
             return;
         }
 
-        if (!givenUserID.matches("12114")){
+        if (!userID.matches("12114")){
             outputAlertMessage("UserID is incorrect");
             return;
         }

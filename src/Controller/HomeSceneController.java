@@ -8,8 +8,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 public class HomeSceneController {
 
     private Stage primaryStage;

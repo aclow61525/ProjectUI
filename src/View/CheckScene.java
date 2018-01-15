@@ -5,6 +5,7 @@ import Model.Product;
 import Model.ReorderProduct;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,6 +15,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.sql.SQLException;
 
 public class CheckScene {
 
@@ -92,9 +95,13 @@ public class CheckScene {
         mainPane.getChildren().add(homeButton);
 
         Button checkButton = new Button("Run Check");
-        checkButton.setOnAction(ae -> {
+        checkButton.setOnAction((ActionEvent ae) -> {
             pageTitle.setText("Running Check");
-            controller.scanDatabase(resultsList);
+            try {
+                controller.scanDatabase(resultsList);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             pageTitle.setText("Stock check completed");
             homeButton.setText("Return Home");
             checkButton.setVisible(false);});

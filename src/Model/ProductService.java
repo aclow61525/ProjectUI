@@ -1,10 +1,13 @@
 package Model;
 
+import Controller.LoginSceneController;
 import javafx.collections.ObservableList;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Observable;
 
@@ -86,30 +89,32 @@ public class ProductService {
 
         database.disconnect();
     }
-    public static void createRestockOrder(DatabaseConnection database, ObservableList<ReorderProduct> resultsList){
+    public static void createRestockOrder(DatabaseConnection database, ObservableList<ReorderProduct> resultsList) throws SQLException {
         //Check statement is accurate
+
+        //PreparedStatement productReorderStatement = database.newStatement("INSERT INTO ReorderTable (ProductID, ReorderAmount) VALUES (?, ?), Statement.RETURN_GENERATED_KEYS)");
+
+
+        SimpleDateFormat currentDateTime = new SimpleDateFormat("yyyyMMddmmss");
+        String dateString = currentDateTime.format(new Date());
+
+        System.out.println(dateString);
+        //String orderID = dateString + userID;
+
+        //System.out.println("Order ID: " + orderID);
         /*
-        PreparedStatement productReorderStatement = database.newStatement("INSERT INTO ReorderTable (ProductID, ProductName, QuantityHeld, MaxStock, ReorderAmount) VALUES (?, ?, ?, ?, ?)");
-
         if (resultsList != null){
-            try {
-                for (int x = 0; x < resultsList.size(); x++){
-                    //the list created in the controller is unpacked
-                    ReorderProduct holdProduct = new ReorderProduct(resultsList.get(x));
+            for (int x = 0; x < resultsList.size(); x++){
+                //the list created in the controller is unpacked
+                ReorderProduct holdProduct = new ReorderProduct(resultsList.get(x));
 
-                    productReorderStatement.setInt(1, holdProduct.getProductID());
-                    productReorderStatement.setString(2, holdProduct.getProductName());
-                    productReorderStatement.setInt(3, holdProduct.getQuantityHeld());
-                    productReorderStatement.setInt(4, holdProduct.getMaxQuantity());
-                    productReorderStatement.setInt(5, holdProduct.getReorderAmount());
+                productReorderStatement.setInt(1, holdProduct.getProductID());
+                productReorderStatement.setInt(2, holdProduct.getReorderAmount());
 
-                    productReorderStatement.executeUpdate();
-                }
 
-            }catch(Exception e){
-                e.printStackTrace();
+                productReorderStatement.executeUpdate();
             }
         }*/
-        database.disconnect();
+        //database.disconnect();
     }
 }

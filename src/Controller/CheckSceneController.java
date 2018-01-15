@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+
 public class CheckSceneController {
     private Stage primaryStage;
 
@@ -33,7 +35,7 @@ public class CheckSceneController {
         primaryStage.setScene(homeScene);
     }
 
-    public void scanDatabase(ObservableList<ReorderProduct> resultsList){
+    public void scanDatabase(ObservableList<ReorderProduct> resultsList) throws SQLException {
         DatabaseConnection database = new DatabaseConnection("Database/InventoryDatabase.db");
 
         ObservableList<Product> productList = FXCollections.observableArrayList();
